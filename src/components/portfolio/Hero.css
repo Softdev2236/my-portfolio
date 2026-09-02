@@ -1,0 +1,331 @@
+.hero{
+    min-height: 65vh;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+}
+.hero-content{
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.hero-left{
+    flex: 1;
+    min-width: 0;
+    line-height: 1;
+}
+.hero-left h3{
+    font-size: 28px;
+    color: goldenrod;
+     font-family: cursive;
+}
+.hero-left h1{
+    font-size: 70px;
+    margin: 10px 0;
+    color: whitesmoke;
+     font-family: cursive;
+}
+.hero-left h2{
+    font-size: 30px;
+    color: goldenrod;
+    margin-bottom: 20px;
+     font-family: cursive;
+     font-weight: 100;
+}
+.hero-left p{
+    width: 400px;
+    color: gainsboro;
+    line-height: 1.7;
+    font-weight: normal;
+     font-family: cursive;
+}
+.hero-buttons{
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+}
+.btn{
+    padding: 12px 30px;
+    font-size: 16px;
+     font-family: cursive;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+.primary-btn{
+    background: goldenrod;
+    color: whitesmoke;
+    border: 2px solid goldenrod;
+}
+.primary-btn:hover{
+    background: orange;
+}
+.secondary-btn{
+    background: transparent;
+    color: white;
+    border: 2px solid goldenrod;
+}
+.secondary-btn:hover{
+    background: orange;
+    color: white;
+}
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.social-icons a {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 2px solid goldenrod;
+    border-radius: 50%;
+
+    color: white;
+    text-decoration: none;
+}
+.hero-right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+.hero-right img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10%;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+    border: 5px solid goldenrod;
+    margin-left:auto;
+    margin-top: auto;
+    
+}
+.hero-right img:hover{
+    transform: scale(1.05);
+}
+.hero-right img{
+    transition: 0.5s;
+}
+.cursor{
+    color: goldenrod;
+    margin-left: 5px;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+    50%{
+        opacity: 0;
+    }
+}
+@media (max-width: 768px) {
+    /* ... your existing code ... */
+
+    /* NEW: Change flex direction and order */
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Move image to the top */
+    .hero-right {
+        order: -1;  /* This moves it to the top */
+        width: 100%;
+        display: flex;
+        justify-content: flex-end; /* Align to right */
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px; /* Space between image and text */
+    }
+
+    .hero-right img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        margin-left: auto; /* Push to the right */
+        margin-right: 0;   /* Reset margin */
+        margin-top: 0;
+    }
+
+    /* Left content stays below */
+    .hero-left {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 0; /* Keep it after the image */
+    }
+
+    /* ... rest of your existing code ... */
+}
+@media (max-width: 768px) {
+    .hero {
+        min-height: auto;
+        padding: 80px 20px 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Control the flex container */
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* Left Content */
+    .hero-left {
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        order: 0; /* Text comes after image */
+    }
+
+    .hero-left h1 {
+        font-size: 42px;
+        line-height: 1.2;
+    }
+
+    .hero-left h2 {
+        font-size: 24px;
+        margin-top: 10px;
+    }
+
+    .hero-left p {
+        font-size: 16px;
+        line-height: 1.6;
+        max-width: 500px;
+        margin: 15px auto;
+    }
+
+    /* Right Image - Moved to TOP CENTER */
+    .hero-right {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Changed from flex-end to center */
+        align-items: center;
+        margin-top: 0;
+        margin-bottom: 20px;
+        order: -1; /* This puts it at the top */
+    }
+
+    .hero-right img {
+        width: 250px;
+        height: 250px;
+        object-fit: cover;
+        margin: 0 auto; /* Center the image */
+        /* Remove margin-left: auto */
+    }
+
+    /* Buttons */
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .hero-buttons button,
+    .hero-buttons a {
+        min-width: 140px;
+        padding: 12px 20px;
+    }
+
+    /* Social Icons */
+    .social-icons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .social-icons a {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 60px 15px 40px;
+    }
+
+    .hero-left h1 {
+        font-size: 34px;
+    }
+
+    .hero-left h2 {
+        font-size: 20px;
+    }
+
+    .hero-left p {
+        font-size: 14px;
+    }
+
+    .hero-right {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+
+    .hero-right img {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto; /* Keep centered */
+    }
+
+    .hero-buttons {
+        width: 100%;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero-buttons button,
+    .hero-buttons a {
+        width: 80%;
+        max-width: 250px;
+    }
+
+    .social-icons {
+        gap: 12px;
+    }
+
+    .social-icons a {
+        width: 42px;
+        height: 42px;
+    }
+}

@@ -1,0 +1,201 @@
+.contact {
+    width: 100%;
+    min-height: 65vh;
+    padding: 20px 20px 60px;
+    background: #0a0a0a;
+}
+.my-contact {
+    text-align: center;
+    font-size: 42px;
+    color: white;
+    margin-bottom: 40px;
+}
+.contact-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+.contact-info {
+    padding: 35px;
+
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.contact-info h3 {
+    color: white;
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.contact-info > p {
+    color: #ccc;
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
+}
+.contact-item span {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(218, 165, 32, 0.15);
+    border: 1px solid goldenrod;
+    border-radius: 12px;
+    font-size: 20px;
+}
+.contact-item p {
+    color: #ddd;
+    font-size: 15px;
+}
+.contact-form {
+    padding: 35px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(218, 165, 32, 0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(218, 165, 32, 0.4);
+    border-radius: 12px;
+    color: white;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s ease;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #aaa;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: goldenrod;
+    box-shadow: 0 0 10px rgba(218, 165, 32, 0.4);
+}
+.contact-form textarea {
+    resize: none;
+}
+.contact-form button {
+    padding: 14px 20px;
+    background: goldenrod;
+    color: #111;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.contact-form button:hover {
+    background: #fff;
+    color: #111;
+    box-shadow:
+        0 0 10px goldenrod,
+        0 0 20px goldenrod;
+    transform: translateY(-3px);
+}
+.contact-info:hover,
+.contact-form:hover {
+    border-color: goldenrod;
+    box-shadow:
+        0 0 10px rgba(218, 165, 32, 0.4),
+        0 0 25px rgba(218, 165, 32, 0.2);
+}
+@media (max-width: 900px) {
+
+    .contact-container {
+        width: 95%;
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}
+@media (max-width: 600px) {
+
+     .contact {
+        min-height: auto;
+        padding: 20px 15px 50px;
+    }
+
+
+    .my-contact {
+        font-size: 32px;
+        margin-bottom: 30px;
+    }
+
+    .contact-container {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+    .contact-info > p {
+        font-size: 14px;
+    }
+
+    .contact-item p {
+        font-size: 14px;
+        word-break: break-word;
+    }
+
+}
+@media (max-width: 400px) {
+
+    .contact {
+        min-height: auto;
+        padding: 35px 10px 40px;
+    }
+
+    .my-contact {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    .contact-info,
+    .contact-form {
+        padding: 20px;
+    }
+
+    .contact-info h3 {
+        font-size: 20px;
+    }
+      .contact-item span {
+        width: 40px;
+        height: 40px;
+        font-size: 17px;
+    }
+
+}

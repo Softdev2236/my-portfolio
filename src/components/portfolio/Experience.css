@@ -1,0 +1,245 @@
+.experience{
+    width: 100%;
+    min-height: 65vh;
+    padding: 100px 20px;
+    background: #0a0a0a;
+}
+.my-experience{
+    font-size: 42px;
+    color: white;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.experience-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.experience-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 3px;
+    background: goldenrod;
+    transform: translateX(-50%);
+    box-shadow:
+        0 0 5px goldenrod,
+        0 0 15px goldenrod;
+}
+.experience-card {
+    position: relative;
+
+    width: 45%;
+
+    padding: 25px;
+
+    margin-bottom: 50px;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    border: 2px solid rgba(218, 165, 32, 0.5);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4);
+
+    transition: 0.3s ease;
+}
+.experience-card:nth-child(odd) {
+    margin-right: auto;
+}
+.experience-card:nth-child(even) {
+    margin-left: auto;
+}
+.experience-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 35px;
+
+    width: 18px;
+    height: 18px;
+
+    background: goldenrod;
+
+    border: 4px solid #0a0a0a;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 5px goldenrod,
+        0 0 15px goldenrod;
+}
+.experience-card:nth-child(odd)::before {
+    right: -10%;
+}
+.experience-card:nth-child(even)::before {
+    left: -10%;
+}
+.experience-content h3 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.experience-content h4 {
+    color: goldenrod;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.experience-duration {
+    display: inline-block;
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.experience-content p {
+    color: #ccc;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+.experience-card:hover {
+    transform: translateY(-8px);
+
+    border-color: goldenrod;
+
+    box-shadow:
+        0 0 10px rgba(218, 165, 32, 0.4),
+        0 0 25px rgba(218, 165, 32, 0.2);
+}
+/* =========================
+   MOBILE EXPERIENCE
+========================= */
+
+@media (max-width: 700px) {
+
+    .experience {
+        padding: 70px 15px;
+    }
+
+    .my-experience {
+        font-size: 32px;
+        margin-bottom: 50px;
+    }
+
+    .experience-container {
+        width: 100%;
+        padding: 10px 0 10px 35px;
+    }
+
+    /* Move timeline line to the left */
+
+    .experience-container::before {
+        left: 10px;
+
+        width: 3px;
+
+        transform: none;
+    }
+
+    /* All cards become right-side cards */
+
+    .experience-card,
+    .experience-card:nth-child(odd),
+    .experience-card:nth-child(even) {
+
+        width: 100%;
+
+        margin-left: 0;
+        margin-right: 0;
+
+        margin-bottom: 30px;
+
+        padding: 20px;
+    }
+
+    /* Timeline dots */
+
+    .experience-card::before,
+    .experience-card:nth-child(odd)::before,
+    .experience-card:nth-child(even)::before {
+
+        left: -35px;
+        right: auto;
+
+        top: 30px;
+
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Text */
+
+    .experience-content h3 {
+        font-size: 20px;
+    }
+
+    .experience-content h4 {
+        font-size: 16px;
+    }
+
+    .experience-duration {
+        font-size: 13px;
+    }
+
+    .experience-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+}
+@media (max-width: 400px) {
+
+    .experience {
+        padding: 60px 10px;
+    }
+
+    .my-experience {
+        font-size: 28px;
+    }
+
+    .experience-container {
+        padding-left: 30px;
+    }
+
+    .experience-container::before {
+        left: 8px;
+    }
+
+    .experience-card,
+    .experience-card:nth-child(odd),
+    .experience-card:nth-child(even) {
+        padding: 18px;
+    }
+
+    .experience-card::before,
+    .experience-card:nth-child(odd)::before,
+    .experience-card:nth-child(even)::before {
+        left: -30px;
+
+        width: 14px;
+        height: 14px;
+    }
+
+    .experience-content h3 {
+        font-size: 18px;
+    }
+
+    .experience-content h4 {
+        font-size: 15px;
+    }
+
+    .experience-content p {
+        font-size: 13px;
+    }
+}

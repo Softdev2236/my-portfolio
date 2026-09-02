@@ -1,0 +1,149 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+html {
+    scroll-behavior: smooth !important;
+}
+section {
+    scroll-margin-top: 10px;
+}
+body {
+  background: black;
+  min-height: 100vh;
+}
+
+.app {
+  width: 100%;
+  min-height: 100vh;
+  background: #0a0a0a;
+}
+
+/* Navbar Container - Full width dark background */
+
+
+/* Main Navbar - Matches the image exactly */
+
+
+/* "R" Logo - Red circle with white R */
+
+
+
+
+/* Navigation Links */
+
+
+
+
+
+.page-content{
+    text-align: center;
+    margin-top: 10rem;
+    
+}
+/* Hero Section - Just to show context */
+.hero-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: white;
+}
+
+.hero-section h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+}
+
+.hero-section h1 span {
+  color: #dc3545;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #888;
+  letter-spacing: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+  
+  .nav-links {
+    gap: 1.5rem;
+  }
+  
+  .nav-item {
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.6rem 0;
+  }
+  
+  .nav-links {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    order: 3;
+    width: 100%;
+    padding-top: 0.3rem;
+    border-top: 1px solid #2a2a2a;
+  }
+  
+  .nav-item {
+    font-size: 0.75rem;
+    padding: 0.3rem 0;
+  }
+  
+  .nav-logo .logo-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+  
+  .nav-credit {
+    font-size: 0.8rem;
+  }
+  
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+  
+  .nav-links {
+    gap: 0.6rem;
+  }
+  
+  .nav-item {
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .nav-logo .logo-icon {
+    width: 34px;
+    height: 34px;
+    font-size: 1.3rem;
+  }
+  
+  .nav-credit {
+    font-size: 0.7rem;
+  }
+}
