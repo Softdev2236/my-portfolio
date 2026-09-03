@@ -4,12 +4,12 @@ import React, { useState, useEffect } from "react";
 import{
     FaGithub,FaLinkedin,FaFacebook,FaInstagram
 } from 'react-icons/fa';
+const roles = [
+    'Front-End React Developer',
+    'Video Editor & AI Content Creator',
+    'Graphics Designer'
+];
 function Hero() {
-    const roles=[
-        'Front-End React Developer',
-        'Video Editor & AI Content Creator',
-        'Graphics Designer'
-    ];
     const [text,setText]=useState('');
     const [roleIndex,setRoleIndex]=useState(0);
     const [isDeleting,setIsDeleting]=useState(false);

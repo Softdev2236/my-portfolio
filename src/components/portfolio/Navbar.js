@@ -3,15 +3,13 @@ import "./Navbar.css";
 
 import {
   FaHome,
-  FaFlagCheckered,
   FaCog,
   FaCode,
   FaCalendarAlt,
   FaEnvelope,
-  FaFileAlt,
+  FaFolder,
 } from "react-icons/fa";
 import { useState } from "react";
-import { FaFolder} from "react-icons/fa6";
 
 const Navbar = () => {
     const [active, setActive] = useState("HOME");
