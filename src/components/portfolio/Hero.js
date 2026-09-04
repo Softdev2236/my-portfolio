@@ -46,7 +46,7 @@ return(
     <p>I build modern, responsive and user-friendly websites using React.js.</p>
     <div className='hero-buttons'>
 <a href='#contact' className='btn primary-btn'>Hire Me</a>
-<button className='btn secondary-btn'>Download CV</button>
+<a href="/cv/Ali-Raxa-CV.pdf"  download className="btn secondary-btn"> Download CV</a>
 </div>
 <div className='social-icons'>
     <a href='https://github.com/' target='_blank' rel='noreferrer'><FaGithub/></a>
