@@ -28,27 +28,32 @@
 .hero-left h3{
     font-size: 28px;
     color: goldenrod;
-     font-family: cursive;
+     
 }
 .hero-left h1{
     font-size: 70px;
     margin: 10px 0;
     color: whitesmoke;
-     font-family: cursive;
+    text-shadow:
+        0 0 5px goldenrod,
+        0 0 15px goldenrod;
+     
 }
 .hero-left h2{
     font-size: 30px;
     color: goldenrod;
     margin-bottom: 20px;
-     font-family: cursive;
-     font-weight: 100;
+     font-weight: bold;
 }
 .hero-left p{
     width: 400px;
     color: gainsboro;
     line-height: 1.7;
     font-weight: normal;
-     font-family: cursive;
+    text-shadow:
+        0 0 5px goldenrod,
+        0 0 15px goldenrod;
+     
 }
 .hero-buttons{
     margin-top: 30px;
@@ -58,7 +63,6 @@
 .btn{
     padding: 12px 30px;
     font-size: 16px;
-     font-family: cursive;
     border: none;
     border-radius: 30px;
     cursor: pointer;
