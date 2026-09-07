@@ -1,7 +1,39 @@
+import { useRef ,useState} from "react";
 import "./Contact.css";
 import contactData from "./ContactData";
+import emailjs from "@emailjs/browser";
+import { FaEnvelope, FaPhone, FaLocationDot } from "react-icons/fa6";
 
 function Contact() {
+    const form = useRef();
+    const [status, setStatus] = useState("");
+    const [isSending, setIsSending] = useState(false);
+    const sendEmail = (e) => {
+    e.preventDefault();
+
+    setIsSending(true);
+    setStatus("");
+
+    emailjs
+        .sendForm(
+            "portfolio_gmail",
+            "template_hy8kbgq",
+            form.current,
+            "MxIqtYGZ826PupITB"
+        )
+        .then(() => {
+            setStatus("success");
+            setIsSending(false);
+            form.current.reset();
+        })
+        .catch((error) => {
+            console.log("EmailJS Error:", error);
+            setStatus("error");
+             setIsSending(false);
+        })
+      
+};
+   
     return (
         <section className="contact" id="contact">
 
@@ -22,17 +54,17 @@ function Contact() {
                     <div className="contact-details">
 
                         <div className="contact-item">
-                            <span>📧</span>
+                            <span><FaEnvelope /></span>
                             <p>{contactData.email}</p>
                         </div>
 
                         <div className="contact-item">
-                            <span>📱</span>
+                            <span> <FaPhone /></span>
                             <p>{contactData.phone}</p>
                         </div>
 
                         <div className="contact-item">
-                            <span>📍</span>
+                            <span><FaLocationDot /></span>
                             <p>{contactData.location}</p>
                         </div>
 
@@ -41,31 +73,28 @@ function Contact() {
                 </div>
 
 
-                <form className="contact-form">
+                <form ref={form} className="contact-form" onSubmit={sendEmail}>
 
-                    <input
-                        type="text"
-                        placeholder="Your Name"
-                    />
+                    <input type="text" name="from_name" placeholder="Your Name" required />
 
-                    <input
-                        type="email"
-                        placeholder="Your Email"
-                    />
+                    <input type="email" name="from_email" placeholder="Your Email" required />
 
-                    <input
-                        type="text"
-                        placeholder="Subject"
-                    />
+                    <input type="text" name="subject" placeholder="Subject" required />
 
                     <textarea
-                        placeholder="Your Message"
-                        rows="6"
-                    ></textarea>
+                        name="message" placeholder="Your Message" rows="6" required ></textarea>
+     {status === "success" && (
+    <p className="form-status success-message">
+        ✓ Message sent successfully!
+    </p>
+)}
 
-                    <button type="submit">
-                        Send Message
-                    </button>
+{status === "error" && (
+    <p className="form-status error-message">
+        ✕ Failed to send message. Please try again.
+    </p>
+)}
+     <button type="submit" disabled={isSending}> {isSending ? "Sending..." : "Send Message"} </button>
 
                 </form>
 

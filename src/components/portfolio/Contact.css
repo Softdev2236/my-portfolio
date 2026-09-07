@@ -131,6 +131,33 @@
         0 0 10px rgba(218, 165, 32, 0.4),
         0 0 25px rgba(218, 165, 32, 0.2);
 }
+/* Form Status Messages */
+
+.form-status {
+    padding: 12px 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.success-message {
+    color: #7CFC00;
+    background: rgba(124, 252, 0, 0.08);
+    border: 1px solid rgba(124, 252, 0, 0.4);
+}
+
+.error-message {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.08);
+    border: 1px solid rgba(255, 107, 107, 0.4);
+}
+
+.contact-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
 @media (max-width: 900px) {
 
     .contact-container {
