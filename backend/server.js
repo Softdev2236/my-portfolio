@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URI)
 });
 
 // Import Project Model
-const Project = require('./models/Project');
+const Project = require('../api/models/Project');
 console.log('✅ Project model loaded successfully!');
 
 // ============ TEST ROUTE ============

@@ -7,7 +7,7 @@ mongoose.connect(process.env.MONGODB_URI)
   console.log('✅ Connected!');
   
   // Try to import the model
-  const Project = require('./models/Project');
+  const Project = require('../api/models/Project');
   console.log('✅ Project type:', typeof Project);
   console.log('✅ Project.find type:', typeof Project.find);
   
