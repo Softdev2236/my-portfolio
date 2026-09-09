@@ -1,0 +1,62 @@
+### Test API
+GET http://localhost:5000/api/test
+
+### Get All Projects
+GET http://localhost:5000/api/projects
+
+### Create New Project
+POST http://localhost:5000/api/projects
+Content-Type: application/json
+
+{
+    "title": "My First Project",
+    "description": "This is my first project created with REST Client!",
+    "imageUrl": "https://via.placeholder.com/400x300",
+    "liveUrl": "https://myproject.com",
+    "githubUrl": "https://github.com/myproject",
+    "technologies": ["React", "Node.js", "MongoDB"],
+    "featured": true
+}
+
+### Create Another Project
+POST http://localhost:5000/api/projects
+Content-Type: application/json
+
+{
+    "title": "E-Commerce Website",
+    "description": "A full-featured online store with payment integration",
+    "imageUrl": "https://via.placeholder.com/400x300/FF6B6B/FFFFFF",
+    "liveUrl": "https://myecommerce.com",
+    "githubUrl": "https://github.com/myecommerce",
+    "technologies": ["React", "Redux", "Node.js", "Stripe"],
+    "featured": true
+}
+
+### Create Third Project
+POST http://localhost:5000/api/projects
+Content-Type: application/json
+
+{
+    "title": "Weather App",
+    "description": "Real-time weather application with 5-day forecast",
+    "imageUrl": "https://via.placeholder.com/400x300/4ECDC4/FFFFFF",
+    "liveUrl": "https://myweatherapp.com",
+    "githubUrl": "https://github.com/myweatherapp",
+    "technologies": ["React", "Axios", "Weather API"],
+    "featured": false
+}
+
+### Get Single Project (Replace {id} with actual ID)
+GET http://localhost:5000/api/projects/{id}
+
+### Update Project (Replace {id} with actual ID)
+PUT http://localhost:5000/api/projects/{id}
+Content-Type: application/json
+
+{
+    "title": "Updated Project Title",
+    "featured": true
+}
+
+### Delete Project (Replace {id} with actual ID)
+DELETE http://localhost:5000/api/projects/{id}

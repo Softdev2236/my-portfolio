@@ -32,20 +32,20 @@
 
 /* ===== PROJECTS GRID - 3 IN A ROW ===== */
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
-    width: 100%;
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 25px !important;
+    width: 100% !important;
 }
 
 .project-card {
-    width: 33%;
+    width: 100% !important;
     min-height: 380px;
-    display: flex;
-    flex-direction: column; /* Stack vertically within card */
-    background: rgba(255, 255, 255, 0.08);
-    border: 2px solid rgba(218, 165, 32, 0.5);
-    border-radius: 20px;
+    display: flex !important;
+    flex-direction: column !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 2px solid rgba(218, 165, 32, 0.5) !important;
+    border-radius: 20px !important;
     overflow: hidden;
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
@@ -176,8 +176,8 @@
     }
 
     .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px !important;
     }
 
     .project-card {
@@ -208,7 +208,7 @@
 }
 
 /* =========================
-   MOBILE (1 column - your original layout)
+   MOBILE (1 column)
 ========================= */
 
 @media (max-width: 700px) {
@@ -228,14 +228,14 @@
     }
 
     .projects-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
     }
 
     .project-card {
         flex-direction: column;
         min-height: auto;
-        width: 100%;
+        width: 100% !important;
     }
 
     .project-image {
@@ -290,7 +290,7 @@
 @media (max-width: 400px) {
     .projects {
         padding: 50px 12px;
-         min-height: auto;
+        min-height: auto;
     }
 
     .my-projects {
@@ -299,7 +299,7 @@
     }
 
     .projects-grid {
-        gap: 15px;
+        gap: 15px !important;
     }
 
     .project-card {
@@ -345,4 +345,59 @@
         font-size: 13px;
         padding: 10px;
     }
+}
+
+/* =========================
+   LOADING & ERROR STATES
+========================= */
+
+.loading-container,
+.error-container,
+.empty-container {
+    width: 100%;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.loading-box,
+.error-box,
+.empty-box {
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 10px;
+}
+
+.loading-box {
+    border: 2px solid goldenrod;
+    background: rgba(218, 165, 32, 0.1);
+    color: white;
+}
+
+.error-box {
+    border: 2px solid #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    color: #ff6b6b;
+}
+
+.empty-box {
+    border: 2px dashed goldenrod;
+    background: rgba(218, 165, 32, 0.05);
+    color: #bbb;
+}
+
+.retry-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: goldenrod;
+    border: none;
+    border-radius: 5px;
+    color: black;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.retry-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(218, 165, 32, 0.5);
 }

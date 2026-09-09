@@ -2,7 +2,7 @@ import './Hero.css';
 import profile from '../../assets/profile.jpeg';
 import React, { useState, useEffect } from "react";
 import{
-    FaGithub,FaLinkedin,FaFacebook,FaInstagram
+    FaGithub,FaLinkedin
 } from 'react-icons/fa';
 const roles = [
     'Front-End React Developer',
@@ -49,10 +49,9 @@ return(
 <a href="/cv/Ali-Raxa-CV.pdf"  download className="btn secondary-btn"> Download CV</a>
 </div>
 <div className='social-icons'>
-    <a href='https://github.com/' target='_blank' rel='noreferrer'><FaGithub/></a>
-     <a href="https://linkedin.com/" target="_blank" rel="noreferrer"><FaLinkedin /> </a>
-      <a href='https://facebook.com/' target='_blank' rel='noreferrer'><FaFacebook /></a>
-       <a href='https://instagram.com/' target='_blank' rel='noreferrer'><FaInstagram /></a>
+    <a href="https://github.com/Softdev2236" target='_blank' rel='noreferrer'><FaGithub/></a>
+     <a href="https://www.linkedin.com/in/ali-raxa-khan-11728527b" target="_blank" rel="noreferrer"><FaLinkedin /> </a>
+    
 </div>
     </div>
     
