@@ -5,14 +5,14 @@ export default async function handler(req, res) {
     await connectDB();
     res.status(200).json({
       success: true,
-      message: '✅ Vercel Serverless API is working!',
+      message: '✅ API is working!',
       database: '✅ Connected to MongoDB',
       timestamp: new Date().toISOString()
     });
   } catch (error) {
+    console.error('Error:', error.message);
     res.status(500).json({
       success: false,
-      message: '❌ API Error',
       error: error.message
     });
   }
