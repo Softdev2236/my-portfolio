@@ -2,61 +2,58 @@
 GET http://localhost:5000/api/test
 
 ### Get All Projects
-GET http://localhost:5000/api/projects
+https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects
 
 ### Create New Project
-POST http://localhost:5000/api/projects
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects
 Content-Type: application/json
 
 {
-    "title": "My First Project",
-    "description": "This is my first project created with REST Client!",
+    "title": "Test Project from Live",
+    "description": "Testing live CRUD",
     "imageUrl": "https://via.placeholder.com/400x300",
-    "liveUrl": "https://myproject.com",
-    "githubUrl": "https://github.com/myproject",
-    "technologies": ["React", "Node.js", "MongoDB"],
-    "featured": true
+    "technologies": ["Test"],
+    "featured": false
 }
 
 ### Create Another Project
-POST http://localhost:5000/api/projects
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects
 Content-Type: application/json
 
 {
-    "title": "E-Commerce Website",
-    "description": "A full-featured online store with payment integration",
-    "imageUrl": "https://via.placeholder.com/400x300/FF6B6B/FFFFFF",
-    "liveUrl": "https://myecommerce.com",
-    "githubUrl": "https://github.com/myecommerce",
-    "technologies": ["React", "Redux", "Node.js", "Stripe"],
-    "featured": true
+    "title": "Test Project from Live",
+    "description": "Testing live CRUD",
+    "imageUrl": "https://via.placeholder.com/400x300",
+    "technologies": ["Test"],
+    "featured": false
 }
 
 ### Create Third Project
-POST http://localhost:5000/api/projects
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects
 Content-Type: application/json
 
 {
-    "title": "Weather App",
-    "description": "Real-time weather application with 5-day forecast",
-    "imageUrl": "https://via.placeholder.com/400x300/4ECDC4/FFFFFF",
-    "liveUrl": "https://myweatherapp.com",
-    "githubUrl": "https://github.com/myweatherapp",
-    "technologies": ["React", "Axios", "Weather API"],
+    "title": "Test Project from Live",
+    "description": "Testing live CRUD",
+    "imageUrl": "https://via.placeholder.com/400x300",
+    "technologies": ["Test"],
     "featured": false
 }
 
 ### Get Single Project (Replace {id} with actual ID)
-GET http://localhost:5000/api/projects/{id}
+https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects/6aa12a2416f96179196a7c9f
 
 ### Update Project (Replace {id} with actual ID)
-PUT http://localhost:5000/api/projects/{id}
+PUT https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects/6aa12a2416f96179196a7c9f
 Content-Type: application/json
 
 {
-    "title": "Updated Project Title",
-    "featured": true
+    "title": "Updated MI Store",
+    "featured": false
 }
-
 ### Delete Project (Replace {id} with actual ID)
-DELETE http://localhost:5000/api/projects/{id}
+
+DELETE https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/projects/6aa12a2416f96179196a7c9f
+
+
+
