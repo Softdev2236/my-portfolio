@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-// Simple schema without any fancy options
 const ProjectSchema = new mongoose.Schema({
   title: String,
   description: String,
@@ -12,7 +11,4 @@ const ProjectSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-// Force create the model
-const Project = mongoose.model('Project', ProjectSchema);
-
-export default Project;
+export default mongoose.models.Project || mongoose.model('Project', ProjectSchema);
