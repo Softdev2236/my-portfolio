@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import './Projects.css';
 import ProjectCard from './ProjectCard';
+import API_BASE_URL from '../../config/api';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -13,32 +14,32 @@ const Projects = () => {
   }, []);
 
   const fetchProjects = async () => {
-    try {
-     const response = await fetch('/api/projects');
-      const data = await response.json();
-      
-      if (data.success) {
-        // Map MongoDB fields to match your component's expected fields
-        const mappedProjects = data.data.map(project => ({
-          id: project._id,
-          title: project.title,
-          description: project.description,
-          image: project.imageUrl,      // Map imageUrl → image
-          tools: project.technologies,   // Map technologies → tools
-          liveLink: project.liveUrl,     // Map liveUrl → liveLink
-          githubLink: project.githubUrl  // Map githubUrl → githubLink
-        }));
-        setProjects(mappedProjects);
-      } else {
-        setError('Failed to load projects');
-      }
-    } catch (err) {
-      console.error('Error fetching projects:', err);
-      setError('Cannot connect to server. Make sure backend is running.');
-    } finally {
-      setLoading(false);
+  try {
+    console.log('📡 Fetching from:', `${API_BASE_URL}/api/projects`);
+    const response = await fetch(`${API_BASE_URL}/api/projects`);
+    const data = await response.json();
+    
+    if (data.success) {
+      const mappedProjects = data.data.map(project => ({
+        id: project._id,
+        title: project.title,
+        description: project.description,
+        image: project.imageUrl,
+        tools: project.technologies,
+        liveLink: project.liveUrl,
+        githubLink: project.githubUrl
+      }));
+      setProjects(mappedProjects);
+    } else {
+      setError('Failed to load projects');
     }
-  };
+  } catch (err) {
+    console.error('Error fetching projects:', err);
+    setError('Cannot connect to server. Make sure backend is running.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Loading state
   if (loading) {
