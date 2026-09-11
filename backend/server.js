@@ -298,6 +298,183 @@ app.delete('/api/projects/:id', async (req, res) => {
     });
   }
 });
+// ============ SKILLS ROUTES ============
+
+// GET all skills
+app.get('/api/skills', async (req, res) => {
+  try {
+    console.log('📊 Fetching skills...');
+    
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const collection = db.collection('skills');
+    const skills = await collection.find({}).sort({ order: 1, createdAt: 1 }).toArray();
+    
+    console.log(`✅ Found ${skills.length} skills`);
+    res.json({
+      success: true,
+      count: skills.length,
+      data: skills
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// POST create new skill
+app.post('/api/skills', async (req, res) => {
+  try {
+    console.log('📝 Creating skill...');
+    console.log('📝 Data:', JSON.stringify(req.body, null, 2));
+    
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const collection = db.collection('skills');
+    const skillData = {
+      ...req.body,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    
+    const result = await collection.insertOne(skillData);
+    console.log('✅ Skill created:', result.insertedId);
+    
+    const created = await collection.findOne({ _id: result.insertedId });
+    
+    res.status(201).json({
+      success: true,
+      data: created
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// GET single skill
+app.get('/api/skills/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('skills');
+    const skill = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    
+    if (!skill) {
+      return res.status(404).json({
+        success: false,
+        error: 'Skill not found'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: skill
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// PUT update skill
+app.put('/api/skills/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('skills');
+    
+    const result = await collection.updateOne(
+      { _id: new ObjectId(req.params.id) },
+      { $set: { ...req.body, updatedAt: new Date() } }
+    );
+    
+    if (result.matchedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Skill not found'
+      });
+    }
+    
+    const updated = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    res.json({
+      success: true,
+      data: updated
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// DELETE skill
+app.delete('/api/skills/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('skills');
+    
+    const result = await collection.deleteOne({ _id: new ObjectId(req.params.id) });
+    
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Skill not found'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: {}
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
 
 // ============ START SERVER ============
 app.listen(PORT, () => {
