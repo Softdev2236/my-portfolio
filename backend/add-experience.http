@@ -7,11 +7,11 @@ POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/experience
 Content-Type: application/json
 
 {
-    "position": "Admin & IT Support",
-    "company": "VOR DEVELOPERS PRIVATE LIMITED",
+    "position": "Test",
+    "company": "Test Company",
     "duration": "2022-2026",
     "description": "Developing responsive and modern web interfaces using React.js, JavaScript, HTML and CSS. Working on reusable components and improving user experience.",
-    "order": 1
+    "order": -1
 }
 
 ### Experience 2 - Ufone Center
@@ -31,12 +31,17 @@ POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/experience
 Content-Type: application/json
 
 {
-    "position": "Game Developer",
-    "company": "Vector3 Solutions",
-    "duration": "2016-2017",
-    "description": "IT Assistant & Customer Service Representative",
-    "order": 3
+    {
+   "position": "Admin & IT Support",
+    "company": "VOR DEVELOPERS PRIVATE LIMITED",
+    "duration": "2022-2026",
+    "description": "Developing responsive and modern web interfaces using React.js, JavaScript, HTML and CSS. Working on reusable components and improving user experience.",
+    "order": 1
+}
 }
 
 ### Get all experience
 GET https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/experience
+
+### Delete the Test Company experience
+DELETE https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/experience/6aa6721191e307c6ba508a6e
