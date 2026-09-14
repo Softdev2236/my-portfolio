@@ -1,5 +1,8 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" }
+    { "source": "/api/projects/(.*)", "destination": "/api/projects?id=$1" },
+    { "source": "/api/skills/(.*)", "destination": "/api/skills?id=$1" },
+    { "source": "/api/experience/(.*)", "destination": "/api/experience?id=$1" },
+    { "source": "/api/services/(.*)", "destination": "/api/services?id=$1" }
   ]
 }
