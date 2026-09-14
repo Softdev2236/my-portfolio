@@ -32,7 +32,7 @@
     justify-content: center;
 }
 .contact-info h3 {
-    color: white;
+    color: goldenrod;
     font-size: 28px;
     margin-bottom: 15px;
 }
@@ -52,7 +52,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    color: white;
+    color: goldenrod;
 }
 .contact-item span {
     width: 45px;
@@ -61,13 +61,14 @@
     justify-content: center;
     align-items: center;
     background: rgba(218, 165, 32, 0.15);
-    border: 1px solid goldenrod;
+    border: 1px solid whitesmoke;
     border-radius: 12px;
     font-size: 20px;
 }
 .contact-item p {
-    color: #ddd;
-    font-size: 15px;
+    color: gainsboro;
+    font-size: 20px;
+    font-weight: 400;
 }
 .contact-form {
     padding: 35px;

@@ -650,6 +650,181 @@ app.delete('/api/experience/:id', async (req, res) => {
   }
 });
 
+// ============ SERVICES ROUTES ============
+
+// GET all services
+app.get('/api/services', async (req, res) => {
+  try {
+    console.log('📊 Fetching services...');
+    
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const collection = db.collection('services');
+    const services = await collection.find({}).sort({ order: 1, createdAt: 1 }).toArray();
+    
+    console.log(`✅ Found ${services.length} services`);
+    res.json({
+      success: true,
+      count: services.length,
+      data: services
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// POST create new service
+app.post('/api/services', async (req, res) => {
+  try {
+    console.log('📝 Creating service...');
+    
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const collection = db.collection('services');
+    const serviceData = {
+      ...req.body,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+    
+    const result = await collection.insertOne(serviceData);
+    const created = await collection.findOne({ _id: result.insertedId });
+    
+    res.status(201).json({
+      success: true,
+      data: created
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// GET single service
+app.get('/api/services/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('services');
+    const service = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    
+    if (!service) {
+      return res.status(404).json({
+        success: false,
+        error: 'Service not found'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: service
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// PUT update service
+app.put('/api/services/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('services');
+    
+    const result = await collection.updateOne(
+      { _id: new ObjectId(req.params.id) },
+      { $set: { ...req.body, updatedAt: new Date() } }
+    );
+    
+    if (result.matchedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Service not found'
+      });
+    }
+    
+    const updated = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    res.json({
+      success: true,
+      data: updated
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(400).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
+// DELETE service
+app.delete('/api/services/:id', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({
+        success: false,
+        error: 'Not connected to MongoDB'
+      });
+    }
+    
+    const { ObjectId } = await import('mongodb');
+    const collection = db.collection('services');
+    
+    const result = await collection.deleteOne({ _id: new ObjectId(req.params.id) });
+    
+    if (result.deletedCount === 0) {
+      return res.status(404).json({
+        success: false,
+        error: 'Service not found'
+      });
+    }
+    
+    res.json({
+      success: true,
+      data: {}
+    });
+  } catch (error) {
+    console.error('❌ Error:', error.message);
+    res.status(500).json({
+      success: false,
+      error: error.message
+    });
+  }
+});
+
 // ============ START SERVER ============
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

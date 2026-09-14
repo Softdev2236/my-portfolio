@@ -1,0 +1,61 @@
+### ============================================
+### ADD SERVICES DATA
+### ============================================
+
+### Service 1: React Web Development
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+Content-Type: application/json
+
+{
+    "title": "React Web Development",
+    "description": "I build modern, responsive and user-friendly websites using React.js.",
+    "icon": "FaReact",
+    "order": 1
+}
+
+### Service 2: Graphic Design
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+Content-Type: application/json
+
+{
+    "title": "Graphic Design",
+    "description": "I create professional graphics, social media posts and visual designs using Canva and Photoshop.",
+    "icon": "FaPaintBrush",
+    "order": 2
+}
+
+### Service 3: Video Editing
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+Content-Type: application/json
+
+{
+    "title": "Video Editing",
+    "description": "I edit engaging videos for YouTube, social media and promotional content.",
+    "icon": "FaVideo",
+    "order": 3
+}
+
+### Service 4: AI Content Creation
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+Content-Type: application/json
+
+{
+    "title": "AI Content Creation",
+    "description": "I create AI-powered images, videos, scripts and creative digital content.",
+    "icon": "FaRobot",
+    "order": 4
+}
+
+### Service 5: Advanced Excel
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+Content-Type: application/json
+
+{
+    "title": "Advanced Excel",
+    "description": "I work with advanced Excel formulas, reports, dashboards and data management.",
+    "icon": "FaFileExcel",
+    "order": 5
+}
+
+### Get all services
+GET https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
