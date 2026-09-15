@@ -825,6 +825,116 @@ app.delete('/api/services/:id', async (req, res) => {
   }
 });
 
+// ============ HERO ROUTES ============
+
+// GET hero
+app.get('/api/hero', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({ success: false, error: 'Not connected to MongoDB' });
+    }
+    
+    const collection = db.collection('heros');
+    const hero = await collection.findOne({});
+    
+    if (!hero) {
+      return res.json({ success: true, data: null });
+    }
+    
+    res.json({ success: true, data: hero });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// POST create hero (first time)
+app.post('/api/hero', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({ success: false, error: 'Not connected to MongoDB' });
+    }
+    
+    const collection = db.collection('heros');
+    const existing = await collection.findOne({});
+    
+    if (existing) {
+      return res.status(400).json({ 
+        success: false, 
+        error: 'Hero already exists. Use PUT to update.' 
+      });
+    }
+    
+    const heroData = { ...req.body, updatedAt: new Date() };
+    const result = await collection.insertOne(heroData);
+    const created = await collection.findOne({ _id: result.insertedId });
+    
+    res.status(201).json({ success: true, data: created });
+  } catch (error) {
+    res.status(400).json({ success: false, error: error.message });
+  }
+});
+
+// PUT update hero
+app.put('/api/hero', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({ success: false, error: 'Not connected to MongoDB' });
+    }
+    
+    const collection = db.collection('heros');
+    const heroData = { ...req.body, updatedAt: new Date() };
+    
+    const result = await collection.findOneAndUpdate(
+      {},
+      { $set: heroData },
+      { upsert: true, returnDocument: 'after' }
+    );
+    
+    res.json({ success: true, data: result.value || result });
+  } catch (error) {
+    res.status(400).json({ success: false, error: error.message });
+  }
+});
+
+// DELETE hero
+app.delete('/api/hero', async (req, res) => {
+  try {
+    if (!isConnected || !db) {
+      return res.status(500).json({ success: false, error: 'Not connected to MongoDB' });
+    }
+    
+    const collection = db.collection('heros');
+    await collection.deleteMany({});
+    res.json({ success: true, data: {} });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
+
+// Debug: check what collections exist and what's in heroes
+app.get('/api/debug-hero', async (req, res) => {
+  try {
+    // List all collections
+    const collections = await db.listCollections().toArray();
+    
+    // Get heroes collection
+    const heroes = await db.collection('heroes').find({}).toArray();
+    
+    // Get heros (alternate pluralization)
+    const heros = await db.collection('heros').find({}).toArray();
+    
+    res.json({
+      collections: collections.map(c => c.name),
+      heroesCount: heroes.length,
+      herosCount: heros.length,
+      heroesData: heroes,
+      herosData: heros
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 // ============ START SERVER ============
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
