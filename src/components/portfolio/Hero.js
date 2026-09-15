@@ -101,6 +101,7 @@ function Hero() {
     }, isDeleting ? 10 : 100);
 
     return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [text, isDeleting, roleIndex, hero.roles?.length]);
 
   return (
