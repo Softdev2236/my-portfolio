@@ -45,6 +45,7 @@ const fallbackHero = {
 
 function Hero() {
   const [hero, setHero] = useState(fallbackHero);
+  // eslint-disable-next-line no-unused-vars
   const [loading, setLoading] = useState(true);
   const [text, setText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
@@ -100,7 +101,7 @@ function Hero() {
     }, isDeleting ? 10 : 100);
 
     return () => clearTimeout(timer);
-  }, [text, isDeleting, roleIndex, hero.roles]);
+  }, [text, isDeleting, roleIndex, hero.roles?.length]);
 
   return (
     <section className='hero' id='home'>
