@@ -2,6 +2,9 @@
 ### ADD SERVICES DATA
 ### ============================================
 
+### Get all services
+GET https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+
 ### Service 1: React Web Development
 POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
 Content-Type: application/json
@@ -57,5 +60,16 @@ Content-Type: application/json
     "order": 5
 }
 
-### Get all services
-GET https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services
+### Update service
+PUT https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services/PASTE_ID_HERE
+Content-Type: application/json
+
+{
+    "title": "Updated Service Title",
+    "description": "Updated description",
+    "icon": "FaCode",
+    "order": 1
+}
+
+### Delete service
+DELETE https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/services/PASTE_ID_HERE

@@ -1,0 +1,64 @@
+
+### Get all skills
+GET https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills
+
+
+
+### Add HTML skill
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills
+Content-Type: application/json
+
+{
+    "name": "HTML",
+    "percentage": 90,
+    "icon": "FaHtml5",
+    "order": 1
+}
+
+### Add CSS skill
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills
+Content-Type: application/json
+
+{
+    "name": "CSS",
+    "percentage": 75,
+    "icon": "FaCss3",
+    "order": 2
+}
+
+### Add JavaScript skill
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills
+Content-Type: application/json
+
+{
+    "name": "JavaScript",
+    "percentage": 80,
+    "icon": "FaJs",
+    "order": 3
+}
+
+### Add React skill
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills
+Content-Type: application/json
+
+{
+    "name": "React.js",
+    "percentage": 70,
+    "icon": "FaReact",
+    "order": 4
+}
+
+### Update skill
+PUT https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills/PASTE_ID_HERE
+Content-Type: application/json
+
+{
+    "name": "Updated Skill Name",
+    "percentage": 85,
+    "icon": "FaCode",
+    "order": 1
+}
+
+### Delete skill
+DELETE https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/skills/PASTE_ID_HERE
+
