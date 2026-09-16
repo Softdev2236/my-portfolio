@@ -1,0 +1,102 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: white;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  border-bottom: 2px solid rgba(218, 165, 32, 0.4);
+  background: rgba(20, 20, 20, 0.95);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.admin-header h1 {
+  color: goldenrod;
+  font-size: 24px;
+  text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+  letter-spacing: 1px;
+}
+
+.admin-header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-btn-secondary,
+.admin-btn-danger {
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.admin-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 1px solid goldenrod;
+}
+
+.admin-btn-secondary:hover {
+  background: goldenrod;
+  color: black;
+  box-shadow: 0 0 12px rgba(218, 165, 32, 0.5);
+}
+
+.admin-btn-danger {
+  background: transparent;
+  color: #ff6b6b;
+  border: 1px solid #ff6b6b;
+}
+
+.admin-btn-danger:hover {
+  background: #ff6b6b;
+  color: black;
+}
+
+.admin-main {
+  padding: 40px 30px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 700px) {
+  .admin-header {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .admin-header h1 {
+    font-size: 20px;
+  }
+
+  .admin-header-actions {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* =========================
+   SMALL PHONES
+========================= */
+
+@media (max-width: 400px) {
+  .admin-header h1 {
+    font-size: 18px;
+  }
+
+  .admin-btn-secondary,
+  .admin-btn-danger {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+}
