@@ -1,0 +1,8 @@
+### Test Vercel login
+POST https://my-portfolio-chi-five-uhj0jqhcn2.vercel.app/api/auth
+Content-Type: application/json
+
+{
+  "username": "aliraxa",
+  "password": "YOUR_REAL_PASSWORD"
+}
