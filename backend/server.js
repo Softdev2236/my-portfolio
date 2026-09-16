@@ -935,6 +935,95 @@ app.get('/api/debug-hero', async (req, res) => {
   }
 });
 
+// ============ AUTH ROUTES ============
+
+// POST /api/auth - Login
+app.post('/api/auth', async (req, res) => {
+  const { username, password } = req.body;
+
+  if (!username || !password) {
+    return res.status(400).json({ 
+      success: false, 
+      error: 'Username and password are required' 
+    });
+  }
+
+  try {
+    const bcrypt = (await import('bcryptjs')).default;
+    const jwt = (await import('jsonwebtoken')).default;
+
+    const collection = db.collection('admins');
+    const admin = await collection.findOne({ username });
+
+    if (!admin) {
+      return res.status(401).json({ 
+        success: false, 
+        error: 'Invalid credentials' 
+      });
+    }
+
+    const passwordMatches = await bcrypt.compare(password, admin.passwordHash);
+
+    if (!passwordMatches) {
+      return res.status(401).json({ 
+        success: false, 
+        error: 'Invalid credentials' 
+      });
+    }
+
+    const token = jwt.sign(
+      { adminId: admin._id.toString(), username: admin.username },
+      process.env.JWT_SECRET || 'change-me-in-production',
+      { expiresIn: '7d' }
+    );
+
+    return res.status(200).json({
+      success: true,
+      token,
+      message: 'Login successful'
+    });
+
+  } catch (error) {
+    return res.status(500).json({ 
+      success: false, 
+      error: error.message 
+    });
+  }
+});
+
+// GET /api/verify - Check if token is valid
+app.get('/api/verify', async (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ 
+      success: false, 
+      error: 'No token provided' 
+    });
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const jwt = (await import('jsonwebtoken')).default;
+    const decoded = jwt.verify(
+      token, 
+      process.env.JWT_SECRET || 'change-me-in-production'
+    );
+
+    return res.status(200).json({
+      success: true,
+      admin: { username: decoded.username }
+    });
+
+  } catch (error) {
+    return res.status(401).json({ 
+      success: false, 
+      error: 'Invalid or expired token' 
+    });
+  }
+});
+
 // ============ START SERVER ============
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);

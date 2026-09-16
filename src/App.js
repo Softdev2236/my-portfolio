@@ -3,7 +3,7 @@ import { BrowserRouter} from 'react-router-dom';
 import Navbar from './components/portfolio/Navbar';
 import Hero from "./components/portfolio/Hero";
 import './App.css';
-import Skills from './components/portfolio/skills';
+import Skills from './components/portfolio/Skills';
 import Services from './components/portfolio/Services';
 import Projects from './components/portfolio/Projects';
 import Experience from './components/portfolio/Experience';
