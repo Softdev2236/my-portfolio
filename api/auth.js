@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Admin from './models/Admin.js';
+import connectDB from './_lib/db.js';
+import Admin from './_models/Admin.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 

@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Hero from './models/Hero.js';
+import connectDB from './_lib/db.js';
+import Hero from './_models/Hero.js';
 
 export default async function handler(req, res) {
   await connectDB();

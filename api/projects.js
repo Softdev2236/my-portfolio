@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Project from './models/Project.js';
+import connectDB from './_lib/db.js';
+import Project from './_models/Project.js';
 
 export default async function handler(req, res) {
   await connectDB();

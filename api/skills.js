@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Skill from './models/Skill.js';
+import connectDB from './_lib/db.js';
+import Skill from './_models/Skill.js';
 
 export default async function handler(req, res) {
   await connectDB();

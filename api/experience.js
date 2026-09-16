@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Experience from './models/Experience.js';
+import connectDB from './_lib/db.js';
+import Experience from './_models/Experience.js';
 
 export default async function handler(req, res) {
   await connectDB();

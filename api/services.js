@@ -1,5 +1,5 @@
-import connectDB from './lib/db.js';
-import Service from './models/Service.js';
+import connectDB from './_lib/db.js';
+import Service from './_models/Service.js';
 
 export default async function handler(req, res) {
   await connectDB();
