@@ -139,3 +139,21 @@
 .form-message.error {
   color: #ff6b6b;
 }
+/* ---------- Fix dropdown options in dark mode ---------- */
+
+.form-group select {
+  background: #1a1a1a;
+  color: white;
+}
+
+.form-group select option {
+  background: #1a1a1a;
+  color: white;
+  padding: 8px;
+}
+
+.form-group select option:checked,
+.form-group select option:hover {
+  background: goldenrod;
+  color: black;
+}

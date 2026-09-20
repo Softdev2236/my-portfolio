@@ -122,3 +122,25 @@
   opacity: 0.5;
   cursor: not-allowed;
 }
+/* ---------- Skills-specific styles ---------- */
+
+.skill-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-icon-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(218, 165, 32, 0.15);
+  color: goldenrod;
+  border: 1px solid goldenrod;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  min-width: 70px;
+  text-align: center;
+}
