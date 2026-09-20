@@ -4,6 +4,8 @@
   color: white;
 }
 
+/* ---------- Header ---------- */
+
 .admin-header {
   display: flex;
   justify-content: space-between;
@@ -46,7 +48,6 @@
 .admin-btn-secondary:hover {
   background: goldenrod;
   color: black;
-  box-shadow: 0 0 12px rgba(218, 165, 32, 0.5);
 }
 
 .admin-btn-danger {
@@ -60,43 +61,96 @@
   color: black;
 }
 
-.admin-main {
-  padding: 40px 30px;
+/* ---------- Layout ---------- */
+
+.admin-layout {
+  display: flex;
+  min-height: calc(100vh - 70px);
 }
 
-/* =========================
-   TABLET
-========================= */
+/* ---------- Sidebar ---------- */
+
+.admin-sidebar {
+  width: 200px;
+  min-width: 200px;
+  background: rgba(15, 15, 15, 0.95);
+  border-right: 1px solid rgba(218, 165, 32, 0.3);
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.admin-nav-btn {
+  background: transparent;
+  border: none;
+  color: #bbb;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  border-left: 3px solid transparent;
+}
+
+.admin-nav-btn:hover {
+  color: white;
+  background: rgba(218, 165, 32, 0.08);
+}
+
+.admin-nav-btn.active {
+  color: goldenrod;
+  background: rgba(218, 165, 32, 0.12);
+  border-left-color: goldenrod;
+  font-weight: 600;
+}
+
+/* ---------- Main Content ---------- */
+
+.admin-main {
+  flex: 1;
+  padding: 30px;
+  overflow-x: auto;
+}
+
+/* ---------- Mobile ---------- */
 
 @media (max-width: 700px) {
+  .admin-layout {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 10px;
+    border-right: none;
+    border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+    gap: 5px;
+  }
+
+  .admin-nav-btn {
+    white-space: nowrap;
+    padding: 10px 15px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    font-size: 14px;
+  }
+
+  .admin-nav-btn.active {
+    border-left-color: transparent;
+    border-bottom-color: goldenrod;
+  }
+
   .admin-header {
     flex-direction: column;
     gap: 15px;
     padding: 15px 20px;
   }
 
-  .admin-header h1 {
-    font-size: 20px;
-  }
-
-  .admin-header-actions {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media (max-width: 400px) {
-  .admin-header h1 {
-    font-size: 18px;
-  }
-
-  .admin-btn-secondary,
-  .admin-btn-danger {
-    padding: 6px 12px;
-    font-size: 13px;
+  .admin-main {
+    padding: 20px 15px;
   }
 }

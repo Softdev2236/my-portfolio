@@ -49,20 +49,14 @@ export default async function handler(req, res) {
 
     // PUT update project
     if (req.method === 'PUT') {
-      try {
-        const project = await Project.findByIdAndUpdate(
-          id,
-          req.body,
-          { new: true, runValidators: true }
-        );
-        if (!project) {
-          return res.status(404).json({ success: false, error: 'Project not found' });
-        }
-        return res.status(200).json({ success: true, data: project });
-      } catch (error) {
-        return res.status(400).json({ success: false, error: error.message });
-      }
-    }
+  const { _id, __v, ...safeBody } = req.body;
+  const project = await Project.findByIdAndUpdate(
+    req.query.id,
+    safeBody,
+    { new: true, runValidators: true }
+  );
+  return res.status(200).json({ success: true, data: project });
+}
 
     // DELETE project
     if (req.method === 'DELETE') {

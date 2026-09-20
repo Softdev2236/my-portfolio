@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       try {
         const experience = await Experience.findByIdAndUpdate(
           id,
-          req.body,
+          safeBody,
           { new: true, runValidators: true }
         );
         if (!experience) {

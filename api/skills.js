@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       try {
         const skill = await Skill.findByIdAndUpdate(
           id,
-          req.body,
+          safeBody,
           { new: true, runValidators: true }
         );
         if (!skill) {

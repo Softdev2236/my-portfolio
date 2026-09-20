@@ -52,7 +52,7 @@ export default async function handler(req, res) {
       try {
         const service = await Service.findByIdAndUpdate(
           id,
-          req.body,
+          safeBody,
           { new: true, runValidators: true }
         );
         if (!service) {
