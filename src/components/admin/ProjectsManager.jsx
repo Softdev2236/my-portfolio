@@ -10,7 +10,6 @@ const EMPTY_PROJECT = {
   description: '',
   imageUrl: '',
   liveUrl: '',
-  githubUrl: '',
   technologies: [''],
   featured: false
 };
@@ -84,7 +83,6 @@ function ProjectsManager() {
       description: editing.description,
       imageUrl: editing.imageUrl,
       liveUrl: editing.liveUrl,
-      githubUrl: editing.githubUrl,
       technologies: editing.technologies.filter((t) => t.trim()),
       featured: editing.featured
     };
@@ -212,15 +210,6 @@ function ProjectsManager() {
           type="text"
           value={editing.liveUrl}
           onChange={(e) => handleChange('liveUrl', e.target.value)}
-        />
-      </div>
-
-      <div className="form-group">
-        <label>GitHub URL</label>
-        <input
-          type="text"
-          value={editing.githubUrl}
-          onChange={(e) => handleChange('githubUrl', e.target.value)}
         />
       </div>
 
